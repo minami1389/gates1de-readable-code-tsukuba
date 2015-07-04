@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF5E2CE51B4774B9008C9DF6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E2CE41B4774B9008C9DF6 /* main.swift */; };
+		BF9DBAA51B477E29005E640D /* recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DBAA41B477E28005E640D /* recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		BF5E2CE11B4774B9008C9DF6 /* readable-code-tsukuba */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "readable-code-tsukuba"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5E2CE41B4774B9008C9DF6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BF9DBAA31B477CA4005E640D /* recipe-data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "recipe-data.txt"; sourceTree = "<group>"; };
+		BF9DBAA41B477E28005E640D /* recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				BF5E2CE41B4774B9008C9DF6 /* main.swift */,
+				BF9DBAA41B477E28005E640D /* recipe.swift */,
+				BF9DBAA31B477CA4005E640D /* recipe-data.txt */,
 			);
 			path = "readable-code-tsukuba";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF5E2CE51B4774B9008C9DF6 /* main.swift in Sources */,
+				BF9DBAA51B477E29005E640D /* recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +242,7 @@
 				BF5E2CEA1B4774B9008C9DF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
