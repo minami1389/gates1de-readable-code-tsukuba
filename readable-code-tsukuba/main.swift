@@ -8,4 +8,7 @@
 
 import Foundation
 
-println("オムライス")
+var recipe = Recipe()
+
+recipe.readRecipeData()
+recipe.printRecipeData()
