@@ -10,7 +10,6 @@ import Foundation
 
 class Recipe {
     
-    var recipeDataString: String!
     var recipeDataDictionary: [Int:String] = [:]
     
     init() {
@@ -20,34 +19,34 @@ class Recipe {
     // MARK: 処理系関数
     func readRecipeData() {
         let filePath = "/Users/minami/readable-code/gates1de-readable-code-tsukuba/readable-code-tsukuba/recipe-data.txt"
-        self.recipeDataString = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)
+        if let recipeDataString = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil) {
+            self.recipeDataDictionary =  self.convertDataStringToDictionary(recipeDataString)
+        }
     }
     
-    func separateLines(originalString: String) {
+    private func convertDataStringToDictionary(originalString: String) -> [Int : String] {
+        var dictionary: [Int:String] = [:]
         originalString.enumerateLines( {
             (line, stop) in
-                let index = self.recipeDataDictionary.count + 1
-                self.recipeDataDictionary[index] = line
+                let index = dictionary.count + 1
+                dictionary[index] = line
             }
         )
+        return dictionary
     }
     
     
     // MARK: 表示系関数
     func printAllRecipeData() {
-        println(self.recipeDataString)
-    }
-    
-    func printSeparateRecipeData() {
-        self.separateLines(self.recipeDataString)
-        for (id,content) in self.recipeDataDictionary {
-            println(String(id) + ": " + content)
+        for var i = 1; i <= self.recipeDataDictionary.count; i++ {
+            printRecipeDataById(i)
         }
     }
     
-    func printSeparateRecipeDataById(id: Int) {
+    func printRecipeDataById(id: Int) {
         if let content = self.recipeDataDictionary[id] {
             println(String(id) + ": " + content)
         }
     }
+    
 }
