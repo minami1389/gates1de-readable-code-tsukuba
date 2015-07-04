@@ -11,18 +11,23 @@ import Foundation
 class Recipe {
     
     var recipeDataString: String!
-    var recipeDataStringArray = Array<String>()
+    var recipeDataDictionary: [Int:String] = [:]
+    
+    init() {
+        readRecipeData()
+    }
     
     // MARK: 処理系関数
     func readRecipeData() {
-        let filePath = "/Users/gates1de/develop/swift/readable-code-tsukuba/readable-code-tsukuba/recipe-data.txt"
+        let filePath = "/Users/minami/readable-code/gates1de-readable-code-tsukuba/readable-code-tsukuba/recipe-data.txt"
         self.recipeDataString = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)
     }
     
-    func separtLines(originalString: String) {
-        originalString.enumerateLines( { (line, stop) in
-                let index = self.recipeDataStringArray.count + 1
-                self.recipeDataStringArray.append("\(index): \(line)")
+    func separateLines(originalString: String) {
+        originalString.enumerateLines( {
+            (line, stop) in
+                let index = self.recipeDataDictionary.count + 1
+                self.recipeDataDictionary[index] = line
             }
         )
     }
@@ -34,9 +39,15 @@ class Recipe {
     }
     
     func printSeparateRecipeData() {
-        self.separtLines(self.recipeDataString)
-        for recipeString in self.recipeDataStringArray {
-            println(recipeString)
+        self.separateLines(self.recipeDataString)
+        for (id,content) in self.recipeDataDictionary {
+            println(String(id) + ": " + content)
+        }
+    }
+    
+    func printSeparateRecipeDataById(id: Int) {
+        if let content = self.recipeDataDictionary[id] {
+            println(String(id) + ": " + content)
         }
     }
 }

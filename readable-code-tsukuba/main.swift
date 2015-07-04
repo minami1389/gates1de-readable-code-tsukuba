@@ -10,5 +10,5 @@ import Foundation
 
 var recipe = Recipe()
 
-recipe.readRecipeData()
 recipe.printSeparateRecipeData()
+recipe.printSeparateRecipeDataById(2)
